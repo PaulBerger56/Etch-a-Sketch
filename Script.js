@@ -30,18 +30,27 @@ const newButton = document.querySelector("#newGrid");
 newButton.addEventListener('click' , () => {
     let amount = parseInt(prompt("Please enter a number for the next grid size: "));
     grid.innerHTML = '';
-    addRows(amount);
-    addBoxes(amount);
-    animateBoxes();
-})
+
+    if(amount > 100) {
+        addRows(100);
+        addBoxes(100);
+        animateBoxes();
+    } else {
+        addRows(amount);
+        addBoxes(amount);
+        animateBoxes();
+    }; 
+});
 
 function animateBoxes() {
     const boxes = document.querySelectorAll('.box');
     boxes.forEach((box) => {
     box.addEventListener('mouseenter', () => {
-        box.style.backgroundColor = 'red';
+        box.style.backgroundColor = 'black';
     });
 });
-}
+};
+
+
 
 
